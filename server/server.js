@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const uri = process.env.MONGODB_URI;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
