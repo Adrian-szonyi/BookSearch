@@ -8,7 +8,7 @@ import Auth from '../utils/auth';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(MY_PROFILE);
-  const userData = data?.me || [];
+  const userData = data?.profile || [];
   const [removeBook] = useMutation(REMOVE_BOOK);
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
