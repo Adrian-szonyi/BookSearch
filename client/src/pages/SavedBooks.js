@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { removeBookId } from "../utils/localStorage";
 import { MY_PROFILE } from "../utils/queries";
@@ -7,9 +7,8 @@ import { REMOVE_BOOK } from "../utils/mutations";
 import Auth from '../utils/auth';
 
 const SavedBooks = () => {
-
-  const userData = data?.me || [];
   const { loading, data } = useQuery(MY_PROFILE);
+  const userData = data?.me || [];
   const [removeBook] = useMutation(REMOVE_BOOK);
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
